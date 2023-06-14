@@ -19,7 +19,7 @@ Open the `config.ini` file in the project directory and replace the placeholders
 
 * In Providers, insert the name of the csv file generated after running binance.py
 * In PieChart, insert the name of the cryptocurrency for which you want to know the capitalisation /n
-* In Binance, you need to insert the Binance API base url link
+* In Binance, you need to insert the Binance API base url link, symbol and interval
 
 ### Step 4: Run the `binance.py` script
 Open a terminal or command prompt, navigate to the project directory, and run the following command to execute the `binance.py` script:
