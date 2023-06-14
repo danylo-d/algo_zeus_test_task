@@ -27,7 +27,7 @@ class PieChartDataProvider:
         self.symbols = symbols
 
     def get_market_caps(self):
-        binance_data = BinanceAPI()
+        binance_data = BinanceAPI(config.get("Binance", "base_url"))
         market_caps = [
             binance_data.get_market_caps(symbol)["quoteVolume"]
             for symbol in self.symbols

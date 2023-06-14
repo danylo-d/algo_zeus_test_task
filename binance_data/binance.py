@@ -4,14 +4,10 @@ import requests
 import csv
 import configparser
 
-config = configparser.ConfigParser()
-config.read("../config.ini")
-BASE_URL = config.get("Binance", "base_url")
-
 
 class BinanceAPI:
-    def __init__(self):
-        self.base_url = BASE_URL
+    def __init__(self, base_url):
+        self.base_url = base_url
 
     def get_data(self, symbol, interval):
         url = f"{self.base_url}/klines?symbol={symbol}&interval={interval}"
@@ -43,11 +39,14 @@ class CSVWriter:
 
 
 if __name__ == "__main__":
+    config = configparser.ConfigParser()
+    config.read("../config.ini")
+    BASE_URL = config.get("Binance", "base_url")
     # Set the symbol and interval
     symbol = "BTCUSDT"
     interval = "1d"
 
-    binance_api = BinanceAPI()
+    binance_api = BinanceAPI(BASE_URL)
     csv_writer = CSVWriter(
         ["Open Time", "Open", "High", "Low", "Close", "Volume", "Close Time"]
     )
