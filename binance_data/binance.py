@@ -43,8 +43,8 @@ if __name__ == "__main__":
     config.read("../config.ini")
     BASE_URL = config.get("Binance", "base_url")
     # Set the symbol and interval
-    symbol = "BTCUSDT"
-    interval = "1d"
+    symbol = config.get("Binance", "symbol")
+    interval = config.get("Binance", "interval")
 
     binance_api = BinanceAPI(BASE_URL)
     csv_writer = CSVWriter(
